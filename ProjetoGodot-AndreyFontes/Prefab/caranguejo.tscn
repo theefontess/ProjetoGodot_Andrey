@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cpppr5s2ar3an"]
+
+[ext_resource type="PackedScene" uid="uid://diaj4a3u0bsta" path="res://assets/assets/enemies/crab/Crab.gltf" id="1_wng8f"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_6lbhu"]
+radius = 0.8394542
+
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=1484066784]
+
+[node name="Crab2" parent="." unique_id=144875340 instance=ExtResource("1_wng8f")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.032868862, 0, -0.052322388)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=504829707]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021252632, 0.7977472, 0)
+shape = SubResource("SphereShape3D_6lbhu")

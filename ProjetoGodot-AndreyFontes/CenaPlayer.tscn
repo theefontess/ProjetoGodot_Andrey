@@ -4813,10 +4813,6 @@ _data = {
 
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=595303214]
 script = ExtResource("1_scqw2")
-speed = null
-mouse_sensitivity = null
-jump_velocity = null
-rotation_speed = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=30761031]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43265665, 1.4181049, 0.9987118)
@@ -5076,3 +5072,6 @@ margin = 5.0
 
 [node name="Camera3D" type="Camera3D" parent="SpringArm3D" unique_id=1682544227]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7252903e-09, -2.4603891, -0.3724327)
+
+[node name="SpringArm3D2" type="SpringArm3D" parent="." unique_id=1761668271]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.33123136, 1.628937, 3.1563883)

@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 
-@export var speed: float=5.0
+@export var speed: float=15.0
 @export var mouse_sensitivity: float=0.003
 @export var jump_velocity: float=4.5
 @export var rotation_speed: float=3.0
@@ -14,6 +14,7 @@ var camera_rotation_x := 0.0
 @onready var animator = get_node ("Character_Gun/AnimationPlayer") as AnimationPlayer
 
 func _ready():
+	add_to_group("player")
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _input(event):
@@ -37,8 +38,6 @@ func _physics_process(delta):
 		
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_velocity
-		animator.play("Jump")
-		
 		
 	var input_dir = Vector2.ZERO
 	if is_on_floor():
@@ -75,5 +74,7 @@ func _physics_process(delta):
 		else:
 			velocity.x = move_toward(velocity.x, 0 ,speed)
 			velocity.z = move_toward(velocity.z, 0 ,speed)
+	else:
+		animator.play("Jump", 1,2)
 		
 	move_and_slide()

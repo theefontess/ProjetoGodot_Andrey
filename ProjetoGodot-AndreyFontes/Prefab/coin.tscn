@@ -1,18 +1,18 @@
 [gd_scene format=3 uid="uid://bl3f0m8lux008"]
 
 [ext_resource type="PackedScene" uid="uid://c6au00dgpxo42" path="res://assets/assets/collectables/coin/Coin.gltf" id="1_65iyx"]
-[ext_resource type="Script" uid="uid://bqlirqi5o04c5" path="res://Material/rotacaomoeda.gd" id="1_xsp5n"]
+[ext_resource type="Script" uid="uid://ddcuaiy6fxdkv" path="res://coin_prefab.gd" id="1_xsp5n"]
 [ext_resource type="Script" uid="uid://cfnrqehcshgkj" path="res://moeda.gd" id="2_2bjko"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bbx3a"]
 radius = 0.9682617
 
-[node name="Coin" type="StaticBody3D" unique_id=1026393166]
+[node name="Area3D" type="Area3D" unique_id=971512898]
 script = ExtResource("1_xsp5n")
 
-[node name="Coin2" parent="." unique_id=1571086374 instance=ExtResource("1_65iyx")]
+[node name="Coin2" parent="." unique_id=1462667326 instance=ExtResource("1_65iyx")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1744297602]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1806673488]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08746314, -0.00091934204)
 shape = SubResource("CapsuleShape3D_bbx3a")
 script = ExtResource("2_2bjko")
