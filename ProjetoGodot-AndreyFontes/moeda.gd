@@ -20,6 +20,6 @@ func _ready() -> void: # Simular o Start
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void: # Simular o Update
+func _process(delta): # Simular o Update
 	pass
 		

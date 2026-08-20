@@ -4813,10 +4813,6 @@ _data = {
 
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=595303214]
 script = ExtResource("1_scqw2")
-speed = null
-mouse_sensitivity = null
-jump_velocity = null
-rotation_speed = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=30761031]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43265665, 1.4181049, 0.9987118)

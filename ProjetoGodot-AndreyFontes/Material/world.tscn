@@ -3,7 +3,6 @@
 [ext_resource type="Material" uid="uid://ccpri1ron31lr" path="res://Material/Cores.tres" id="1_klkup"]
 [ext_resource type="Script" uid="uid://dwdh6ajdlh6t3" path="res://Script/node_3d.gd" id="3_nvr57"]
 [ext_resource type="PackedScene" uid="uid://b2vjjd4roj41u" path="res://CenaPlayer.tscn" id="4_nvr57"]
-[ext_resource type="PackedScene" uid="uid://c6au00dgpxo42" path="res://assets/assets/collectables/coin/Coin.gltf" id="5_4abiv"]
 [ext_resource type="Script" uid="uid://cfnrqehcshgkj" path="res://moeda.gd" id="6_8un2a"]
 
 [sub_resource type="Sky" id="Sky_piqom"]
@@ -25,11 +24,11 @@ size = Vector3(100.53683, 2.9440918, 100.53685)
 radius = 0.82714844
 height = 2.8330078
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bbx3a"]
-radius = 1.1977539
-height = 2.3955078
-
 [node name="World" type="Node3D" unique_id=472865219]
+
+[node name="moeda" type="Node3D" parent="." unique_id=1984543924]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9285955, 3.7467556, 3.9415283)
+script = ExtResource("6_8un2a")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=386764834]
 environment = SubResource("Environment_bbx3a")
@@ -66,12 +65,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.3724326)
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="CharacterBody3D" unique_id=656145238]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43265665, 1.4181051, 0.9987116)
 shape = SubResource("CapsuleShape3D_4abiv")
-
-[node name="Coin2" parent="." unique_id=1571086374 instance=ExtResource("5_4abiv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.036133, 3.4042468, 4.2949486)
-script = ExtResource("6_8un2a")
-
-[node name="Area3D" type="Area3D" parent="Coin2" unique_id=1546166214]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Coin2/Area3D" unique_id=1593061411]
-shape = SubResource("CapsuleShape3D_bbx3a")

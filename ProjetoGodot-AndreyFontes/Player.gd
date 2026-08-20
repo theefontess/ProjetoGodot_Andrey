@@ -66,6 +66,7 @@ func _physics_process(delta):
 		if Input.is_action_pressed("atirar"):
 			animator.play("Idle_Shoot")
 			
+			
 		var direction = (transform.basis * Vector3(input_dir.x , 0 , input_dir.y)).normalized()
 		
 		if direction:
