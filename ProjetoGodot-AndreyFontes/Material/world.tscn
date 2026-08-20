@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://c2mdfmypdoiqq"]
+
+[ext_resource type="Material" uid="uid://ccpri1ron31lr" path="res://Material/Cores.tres" id="1_klkup"]
+[ext_resource type="PackedScene" uid="uid://pwqimjgrltku" path="res://assets/assets/characters/bunny_with_a_gun/Character_Gun.gltf" id="2_kduvo"]
+[ext_resource type="Script" uid="uid://dwdh6ajdlh6t3" path="res://Script/node_3d.gd" id="3_nvr57"]
+[ext_resource type="PackedScene" uid="uid://b2vjjd4roj41u" path="res://CenaPlayer.tscn" id="4_nvr57"]
+
+[sub_resource type="Sky" id="Sky_piqom"]
+sky_material = ExtResource("1_klkup")
+
+[sub_resource type="Environment" id="Environment_bbx3a"]
+background_mode = 2
+sky = SubResource("Sky_piqom")
+ambient_light_source = 3
+tonemap_exposure = 3.31
+
+[sub_resource type="BoxMesh" id="BoxMesh_bbx3a"]
+size = Vector3(100, 2.87, 100)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bbx3a"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4abiv"]
+radius = 0.82714844
+height = 2.8330078
+
+[node name="World" type="Node3D" unique_id=472865219]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=386764834]
+environment = SubResource("Environment_bbx3a")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=461007621]
+transform = Transform3D(1, 0, 0, 0, 0.9987897, 0.049183905, 0, -0.049183905, 0.9987897, 0, 11.343982, 0)
+light_color = Color(0.69973654, 0.6159543, 5.7756904e-07, 1)
+light_energy = 0.842
+
+[node name="Piso" type="StaticBody3D" parent="." unique_id=819455313]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Piso" unique_id=465469395]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9285955, 0.9351654, 3.9415283)
+mesh = SubResource("BoxMesh_bbx3a")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Piso" unique_id=1025920138]
+shape = SubResource("BoxShape3D_bbx3a")
+
+[node name="Tree" type="Node3D" parent="." unique_id=1135356686]
+script = ExtResource("3_nvr57")
+
+[node name="CharacterBody3D" parent="." unique_id=595303214 instance=ExtResource("4_nvr57")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.8731976, -8.888233)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="CharacterBody3D" unique_id=656145238]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43265665, 1.4181049, 0.9987118)
+shape = SubResource("CapsuleShape3D_4abiv")
+
+[node name="Character_Gun2" parent="CharacterBody3D" unique_id=1480690624 instance=ExtResource("2_kduvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45991826, 0, 0.91554046)
+
+[node name="SpringArm3D2" type="SpringArm3D" parent="CharacterBody3D" unique_id=1651667145]
+transform = Transform3D(1, 0, 0, 0, 0.89905095, -0.43784398, 0, 0.43784398, 0.89905095, 0.3369305, 8.642551, -12.007813)
+spring_length = 5.0
+margin = 5.0
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/SpringArm3D2" unique_id=750965105]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.3724326)
