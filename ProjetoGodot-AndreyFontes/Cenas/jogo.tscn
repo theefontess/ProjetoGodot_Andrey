@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://cfnrqehcshgkj" path="res://Script/moeda.gd" id="1_reiul"]
 [ext_resource type="Material" uid="uid://ccpri1ron31lr" path="res://Material/Cores.tres" id="2_xmmbr"]
-[ext_resource type="Script" uid="uid://dwdh6ajdlh6t3" path="res://Script/node_3d.gd" id="3_p2wm8"]
 [ext_resource type="PackedScene" uid="uid://b2vjjd4roj41u" path="res://Prefab/Player.tscn" id="4_r4inx"]
 [ext_resource type="Script" uid="uid://b7h3wqry1r4wa" path="res://Prefab/moverinimigo.gd" id="5_0iqwg"]
 [ext_resource type="PackedScene" uid="uid://l86vdw2u861f" path="res://UI/UIPlayer.tscn" id="6_j7fpx"]
@@ -17,10 +16,10 @@ ambient_light_source = 3
 tonemap_exposure = 3.31
 
 [sub_resource type="BoxMesh" id="BoxMesh_bbx3a"]
-size = Vector3(100, 2.87, 100)
+size = Vector3(300, 2.87, 300)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bbx3a"]
-size = Vector3(100.53683, 2.9440918, 100.53685)
+size = Vector3(299.9206, 2.8813477, 300.13245)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4abiv"]
 radius = 0.82714844
@@ -1068,22 +1067,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9285955, 0.9351654, 3.94152
 mesh = SubResource("BoxMesh_bbx3a")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Piso" unique_id=1025920138]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.992588, 0.9720459, 4.0532455)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.928314, 0.9406738, 3.9520416)
 shape = SubResource("BoxShape3D_bbx3a")
 
 [node name="Tree" type="Node3D" parent="." unique_id=1135356686]
-script = ExtResource("3_p2wm8")
 
 [node name="Player" parent="." unique_id=595303214 instance=ExtResource("4_r4inx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5547485, -8.888233)
-
-[node name="SpringArm3D3" type="SpringArm3D" parent="Player" unique_id=1651667145]
-transform = Transform3D(1, 0, 0, 0, 0.89905095, -0.43784398, 0, 0.43784398, 0.89905095, 0.3369305, 8.642551, -12.007813)
-spring_length = 5.0
-margin = 5.0
-
-[node name="Camera3D" type="Camera3D" parent="Player/SpringArm3D3" unique_id=750965105]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.3724326)
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Player" unique_id=656145238]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43265665, 1.4181051, 0.9987116)

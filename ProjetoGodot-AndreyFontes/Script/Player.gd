@@ -6,6 +6,12 @@ extends CharacterBody3D
 @export var jump_velocity: float=4.5
 @export var rotation_speed: float=3.0
 
+@onready var camera1 = $SpringArm3D/Camera3D
+@onready var camera2 = $Camera2/Camera3D
+@onready var camera3 = $Camera3/Camera3D
+
+var camera_atual = 1
+
 const GRAVITY = 9.8
 
 @onready var spring_arm = $SpringArm3D
@@ -16,6 +22,9 @@ var camera_rotation_x := 0.0
 func _ready():
 	add_to_group("player")
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	camera1.current = true
+	camera2.current = false
+	camera3.current = false
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -31,6 +40,14 @@ func _input(event):
 	if event.is_action_pressed("uireturn"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		
+	if event.is_action_pressed("trocar_camera"):
+		camera_atual += 1
+	if camera_atual > 3:
+		camera_atual = 1
+	camera1.current = camera_atual == 1
+	camera2.current = camera_atual == 2
+	camera3.current = camera_atual == 3
+
 func _physics_process(delta):
 	
 	if not is_on_floor():

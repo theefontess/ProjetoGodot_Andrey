@@ -3,7 +3,7 @@ extends Node3D
 
 @onready var coin = preload("res://Prefab/coin.tscn")
 
-var tamanho_mapa = Vector2(50.0, 50.0)
+var tamanho_mapa = Vector2(150.0, 150.0)
 
 @onready var rng := RandomNumberGenerator.new()
 
