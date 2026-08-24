@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bl3f0m8lux008"]
 
 [ext_resource type="PackedScene" uid="uid://c6au00dgpxo42" path="res://assets/assets/collectables/coin/Coin.gltf" id="1_65iyx"]
-[ext_resource type="Script" uid="uid://ddcuaiy6fxdkv" path="res://coin_prefab.gd" id="1_xsp5n"]
-[ext_resource type="Script" uid="uid://cfnrqehcshgkj" path="res://moeda.gd" id="2_2bjko"]
+[ext_resource type="Script" uid="uid://ddcuaiy6fxdkv" path="res://Script/coin_prefab.gd" id="1_xsp5n"]
+[ext_resource type="Script" uid="uid://cfnrqehcshgkj" path="res://Script/moeda.gd" id="2_2bjko"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bbx3a"]
 radius = 0.9682617

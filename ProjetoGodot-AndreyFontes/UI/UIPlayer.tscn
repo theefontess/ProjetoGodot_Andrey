@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://l86vdw2u861f"]
+
+[ext_resource type="Script" uid="uid://cb1asyvi1bvnn" path="res://HudPlayer.gd" id="2_bw5xo"]
+
+[sub_resource type="FontVariation" id="FontVariation_w56nx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bbx3a"]
+font = SubResource("FontVariation_w56nx")
+font_size = 25
+
+[node name="HUD" type="Control" unique_id=1920622205]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_bw5xo")
+
+[node name="LabelPontuacao" type="Label" parent="." unique_id=841525179]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.010000001
+anchor_top = 0.046000004
+anchor_right = 0.11800001
+anchor_bottom = 0.09900001
+offset_left = -0.52000046
+offset_top = 0.19199753
+offset_right = 0.06399536
+offset_bottom = -0.15200806
+text = "Pontos: 0"
+label_settings = SubResource("LabelSettings_bbx3a")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelTempo" type="Label" parent="." unique_id=517256355]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.010000001
+anchor_top = 0.094000004
+anchor_right = 0.156
+anchor_bottom = 0.156
+offset_left = -0.52000046
+offset_top = 0.08799744
+offset_right = 0.28799438
+offset_bottom = -0.088005066
+text = "Tempo: 00:00"
+label_settings = SubResource("LabelSettings_bbx3a")
+horizontal_alignment = 1
+vertical_alignment = 1

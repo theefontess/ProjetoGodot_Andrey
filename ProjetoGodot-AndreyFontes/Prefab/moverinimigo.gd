@@ -10,7 +10,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var inimigomov = global_position.direction_to(player.global_position)
-	velocity = inimigomov * 7.0
+	velocity = inimigomov * 4.0
 	look_at(player.global_position, Vector3.UP)
 	move_and_slide()
 	if is_on_floor():

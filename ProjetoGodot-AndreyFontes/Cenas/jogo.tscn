@@ -1,13 +1,14 @@
 [gd_scene format=4 uid="uid://c2mdfmypdoiqq"]
 
-[ext_resource type="Material" uid="uid://ccpri1ron31lr" path="res://Material/Cores.tres" id="1_klkup"]
-[ext_resource type="Script" uid="uid://dwdh6ajdlh6t3" path="res://Script/node_3d.gd" id="3_nvr57"]
-[ext_resource type="PackedScene" uid="uid://b2vjjd4roj41u" path="res://CenaPlayer.tscn" id="4_nvr57"]
-[ext_resource type="Script" uid="uid://cfnrqehcshgkj" path="res://moeda.gd" id="6_8un2a"]
-[ext_resource type="Script" uid="uid://b7h3wqry1r4wa" path="res://Prefab/moverinimigo.gd" id="6_w56nx"]
+[ext_resource type="Script" uid="uid://cfnrqehcshgkj" path="res://Script/moeda.gd" id="1_reiul"]
+[ext_resource type="Material" uid="uid://ccpri1ron31lr" path="res://Material/Cores.tres" id="2_xmmbr"]
+[ext_resource type="Script" uid="uid://dwdh6ajdlh6t3" path="res://Script/node_3d.gd" id="3_p2wm8"]
+[ext_resource type="PackedScene" uid="uid://b2vjjd4roj41u" path="res://Prefab/Player.tscn" id="4_r4inx"]
+[ext_resource type="Script" uid="uid://b7h3wqry1r4wa" path="res://Prefab/moverinimigo.gd" id="5_0iqwg"]
+[ext_resource type="PackedScene" uid="uid://l86vdw2u861f" path="res://UI/UIPlayer.tscn" id="6_j7fpx"]
 
 [sub_resource type="Sky" id="Sky_piqom"]
-sky_material = ExtResource("1_klkup")
+sky_material = ExtResource("2_xmmbr")
 
 [sub_resource type="Environment" id="Environment_bbx3a"]
 background_mode = 2
@@ -1050,7 +1051,7 @@ radius = 0.8394542
 
 [node name="moeda" type="Node3D" parent="." unique_id=1984543924]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9285955, 3.7467556, 3.9415283)
-script = ExtResource("6_8un2a")
+script = ExtResource("1_reiul")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=386764834]
 environment = SubResource("Environment_bbx3a")
@@ -1071,9 +1072,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.992588, 0.9720459, 4.053245
 shape = SubResource("BoxShape3D_bbx3a")
 
 [node name="Tree" type="Node3D" parent="." unique_id=1135356686]
-script = ExtResource("3_nvr57")
+script = ExtResource("3_p2wm8")
 
-[node name="Player" parent="." unique_id=595303214 instance=ExtResource("4_nvr57")]
+[node name="Player" parent="." unique_id=595303214 instance=ExtResource("4_r4inx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5547485, -8.888233)
 
 [node name="SpringArm3D3" type="SpringArm3D" parent="Player" unique_id=1651667145]
@@ -1090,7 +1091,7 @@ shape = SubResource("CapsuleShape3D_4abiv")
 
 [node name="Caranguejo" type="CharacterBody3D" parent="." unique_id=1484066784]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -21.646885, 2.4588466, 38.948402)
-script = ExtResource("6_w56nx")
+script = ExtResource("5_0iqwg")
 
 [node name="Crab2" type="Node3D" parent="Caranguejo" unique_id=144875340]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.032868862, 0, -0.052322388)
@@ -1160,3 +1161,5 @@ libraries/ = SubResource("AnimationLibrary_t1iut")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Caranguejo" unique_id=504829707]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021252632, 0.7977472, 0)
 shape = SubResource("SphereShape3D_6lbhu")
+
+[node name="HUD" parent="." unique_id=1920622205 instance=ExtResource("6_j7fpx")]

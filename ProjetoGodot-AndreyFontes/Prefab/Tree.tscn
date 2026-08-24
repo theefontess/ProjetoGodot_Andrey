@@ -6,6 +6,7 @@
 size = Vector3(1, 3.6775208, 0.95475006)
 
 [node name="Tree" type="StaticBody3D" unique_id=1026393166]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="Tree2" parent="." unique_id=257614935 instance=ExtResource("1_goc8q")]
 
