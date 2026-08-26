@@ -72,9 +72,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.928314, 0.9406738, 3.952041
 shape = SubResource("BoxShape3D_bbx3a")
 
 [node name="Enemy" parent="." unique_id=1484066784 instance=ExtResource("5_ovbra")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 8.269865, 2.4094152, 56.16232)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 8.269865, 2.6693778, 56.16232)
 
 [node name="Area3D" type="Area3D" parent="Enemy" unique_id=129137328]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.337465, 0)
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Enemy/Area3D" unique_id=348370800]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0.6420794, 0)

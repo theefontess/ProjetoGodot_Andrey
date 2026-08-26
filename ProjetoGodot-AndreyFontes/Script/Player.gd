@@ -3,7 +3,7 @@ extends CharacterBody3D
 
 @export var speed: float=15.0
 @export var mouse_sensitivity: float=0.003
-@export var jump_velocity: float=4.5
+@export var jump_velocity: float=12.5
 @export var rotation_speed: float=3.0
 
 @onready var camera1 = $SpringArm3D/Camera3D

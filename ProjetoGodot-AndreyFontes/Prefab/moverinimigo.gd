@@ -33,6 +33,7 @@ func perseguir_player():
 	look_at(Vector3(player.global_position.x, player.global_position.y, player.global_position.z) , Vector3.UP)
 	move_and_slide()
 	
-func _on_tree_entered(body):
+func _on_body_entered(body):
+	
 	if body.is_in_group('player'):
 		animator.play("Bite_Front")
