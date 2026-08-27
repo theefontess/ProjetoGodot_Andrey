@@ -1,7 +1,36 @@
 [gd_scene format=3 uid="uid://cvpyxcyq4t2gb"]
 
-[ext_resource type="PackedScene" uid="uid://b6hygoo0xrsvo" path="res://UI/menu.tscn" id="1_pveh2"]
+[ext_resource type="Script" uid="uid://bp0kt6rmmcweb" path="res://menu.gd" id="1_u1n12"]
+[ext_resource type="Texture2D" uid="uid://geivyddid8qd" path="res://UI/c22326bf-c670-4926-82da-75e1c078f0ea.png" id="2_vpgfy"]
 
 [node name="Menu" type="Node3D" unique_id=2085863136]
 
-[node name="Menu" parent="." unique_id=28963450 instance=ExtResource("1_pveh2")]
+[node name="Menu" type="Control" parent="." unique_id=28963450]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u1n12")
+
+[node name="C22326BfC670492682Da75e1c078f0Ea" type="Sprite2D" parent="Menu" unique_id=367624726]
+position = Vector2(576, 322.5)
+scale = Vector2(0.7526042, 0.6376953)
+texture = ExtResource("2_vpgfy")
+
+[node name="botao_jogar" type="Button" parent="Menu" unique_id=1949555594]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.19000001
+anchor_top = 0.671
+anchor_right = 0.39600003
+anchor_bottom = 0.813
+offset_left = 0.11997986
+offset_top = 0.19198608
+offset_right = -0.1920166
+offset_bottom = 0.17596436
+text = "JOGAR"
+script = ExtResource("1_u1n12")
+
+[connection signal="pressed" from="Menu/botao_jogar" to="Menu/botao_jogar" method="_on_pressed"]

@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://6lp4mo7wc7wn"]
+
+[ext_resource type="PackedScene" uid="uid://ntmdas5ymguo" path="res://assets/assets/static_objects/bush_with_fruit/Bush_Fruit.gltf" id="1_cb5l1"]
+[ext_resource type="PackedScene" uid="uid://dot5xbodijn43" path="res://assets/assets/static_objects/rock_type_1/Rock_1.gltf" id="2_d80bs"]
+[ext_resource type="PackedScene" uid="uid://yhbpkhst74c" path="res://assets/assets/static_objects/rock_type_2/Rock_2.gltf" id="3_31ume"]
+[ext_resource type="PackedScene" uid="uid://cl0gk6u5r541t" path="res://assets/assets/static_objects/grass_type_2/Grass_2.gltf" id="4_fqjut"]
+[ext_resource type="PackedScene" uid="uid://t1ppqjm0yr8e" path="res://assets/assets/static_objects/grass_type_1/Grass_1.gltf" id="5_t6gbr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6lbhu"]
+size = Vector3(1.5488892, 0.763916, 1.4154053)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bbx3a"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_piqom"]
+height = 4.062378
+radius = 1.7285156
+
+[node name="Arbustos" type="StaticBody3D" unique_id=1026393166]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." unique_id=5372883]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.048428535, 0.23113376, -1.3288288)
+shape = SubResource("BoxShape3D_6lbhu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1036182821]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9875839, 0.58694345, -0.13277867)
+shape = SubResource("SphereShape3D_bbx3a")
+
+[node name="Bush_Fruit2" parent="." unique_id=1624696329 instance=ExtResource("1_cb5l1")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.9875839, -0.02631551, -0.13277867)
+
+[node name="Rock_12" parent="." unique_id=717653615 instance=ExtResource("2_d80bs")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.041517258, 0, -1.3454002)
+
+[node name="Rock_22" parent="." unique_id=501778397 instance=ExtResource("3_31ume")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.74703956, 0, 1.544066)
+
+[node name="Grass_22" parent="." unique_id=795785841 instance=ExtResource("4_fqjut")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.31440997, -0.49194482, 0.0985682)
+
+[node name="Grass_12" parent="." unique_id=1257465847 instance=ExtResource("5_t6gbr")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.660473, -0.48424676, 1.0421078)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1161667419]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.79334116, 0.4741426, 1.5512878)
+shape = SubResource("CylinderShape3D_piqom")

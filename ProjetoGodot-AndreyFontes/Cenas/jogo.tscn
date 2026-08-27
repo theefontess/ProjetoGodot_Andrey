@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://c2mdfmypdoiqq"]
 
 [ext_resource type="Script" uid="uid://cfnrqehcshgkj" path="res://Script/moeda.gd" id="1_reiul"]
+[ext_resource type="Script" uid="uid://b1781bsngdufu" path="res://gerarComposicao.gd" id="1_xmmbr"]
 [ext_resource type="Material" uid="uid://ccpri1ron31lr" path="res://Material/Cores.tres" id="2_xmmbr"]
+[ext_resource type="Script" uid="uid://bscjgr1cl2t3h" path="res://GerarArvores.gd" id="3_reiul"]
 [ext_resource type="PackedScene" uid="uid://b2vjjd4roj41u" path="res://Prefab/Player.tscn" id="4_r4inx"]
-[ext_resource type="PackedScene" uid="uid://cpppr5s2ar3an" path="res://Prefab/caranguejo.tscn" id="5_ovbra"]
+[ext_resource type="Script" uid="uid://bd7ka726rno8q" path="res://Script/gerarinimigos.gd" id="5_ovbra"]
 [ext_resource type="PackedScene" uid="uid://l86vdw2u861f" path="res://UI/UIPlayer.tscn" id="6_j7fpx"]
 
 [sub_resource type="Sky" id="Sky_piqom"]
@@ -29,9 +31,11 @@ size = Vector3(300, 2.87, 300)
 [sub_resource type="BoxShape3D" id="BoxShape3D_bbx3a"]
 size = Vector3(299.9206, 2.8813477, 300.13245)
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_bbx3a"]
-
 [node name="World" type="Node3D" unique_id=472865219]
+
+[node name="ComposiçãoCenario" type="Node3D" parent="." unique_id=619306231]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5797539, 0)
+script = ExtResource("1_xmmbr")
 
 [node name="moeda" type="Node3D" parent="." unique_id=1984543924]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9285955, 3.7467556, 3.9415283)
@@ -46,6 +50,7 @@ light_color = Color(0.69973654, 0.6159543, 5.7756904e-07, 1)
 light_energy = 0.842
 
 [node name="Tree" type="Node3D" parent="." unique_id=1135356686]
+script = ExtResource("3_reiul")
 
 [node name="Player" parent="." unique_id=595303214 instance=ExtResource("4_r4inx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5547485, -8.888233)
@@ -71,14 +76,5 @@ mesh = SubResource("BoxMesh_bbx3a")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.928314, 0.9406738, 3.9520416)
 shape = SubResource("BoxShape3D_bbx3a")
 
-[node name="Enemy" parent="." unique_id=1484066784 instance=ExtResource("5_ovbra")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 8.269865, 2.6693778, 56.16232)
-
-[node name="Area3D" type="Area3D" parent="Enemy" unique_id=129137328]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.337465, 0)
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Enemy/Area3D" unique_id=348370800]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0.6420794, 0)
-shape = SubResource("SphereShape3D_bbx3a")
-
-[connection signal="tree_entered" from="Enemy" to="Enemy" method="_on_tree_entered"]
+[node name="Inimigos" type="Node3D" parent="." unique_id=1185496825]
+script = ExtResource("5_ovbra")
