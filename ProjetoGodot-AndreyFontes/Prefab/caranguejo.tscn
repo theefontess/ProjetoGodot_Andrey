@@ -6,6 +6,9 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_6lbhu"]
 radius = 0.8394542
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_eodex"]
+viewport_path = NodePath("BarraVida/SubViewport")
+
 [node name="Enemy" type="CharacterBody3D" unique_id=1484066784]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 script = ExtResource("1_eodex")
@@ -18,3 +21,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021252632, 0.7977472, 0)
 shape = SubResource("SphereShape3D_6lbhu")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=466928489]
+
+[node name="BarraVida" type="Sprite3D" parent="." unique_id=240146005]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7243327, 0)
+modulate = Color(0, 1, 0, 1)
+billboard = 1
+texture = SubResource("ViewportTexture_eodex")
+
+[node name="SubViewport" type="SubViewport" parent="BarraVida" unique_id=765768394]
+size = Vector2i(200, 20)
+
+[node name="ProgressBar" type="ProgressBar" parent="BarraVida/SubViewport" unique_id=80952861]
+offset_right = 200.0
+offset_bottom = 27.0
+value = 100.0
+show_percentage = false

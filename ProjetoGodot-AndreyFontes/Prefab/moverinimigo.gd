@@ -3,15 +3,26 @@ extends CharacterBody3D
 @export var velocidade :=3.0
 @export var distancia_perseguicao := 21.0
 
+@export var vidainimigomax := 100
+var vida := vidainimigomax
+@onready var barra = $BarraVida/SubViewport/ProgressBar
+
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var animator = get_node("Crab2/AnimationPlayer")
 @onready var navigation_agent = $NavigationAgent3D
 
 func _ready():
 	add_to_group("enemy")
+	vida = vidainimigomax
+	barra.max_value = vidainimigomax
+	barra.value = vida
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 
+	if vida < 60 :
+		$BarraVida.modulate = Color.YELLOW
+	if vida < 40 :
+		$BarraVida.modulate = Color.RED
 	if player == null:
 		return
 	
@@ -37,3 +48,14 @@ func _on_body_entered(body):
 	
 	if body.is_in_group('player'):
 		animator.play("Bite_Front")
+		
+func receber_dano(dano):
+	vida -=dano
+	vida = clamp(vida , 0 , vidainimigomax)
+	barra.value = vida
+	
+	if vida <= 0:
+		morrer()
+		
+func morrer():
+	queue_free()

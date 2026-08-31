@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://b2vjjd4roj41u"]
 
 [ext_resource type="Script" uid="uid://ijt8d5m4h7hf" path="res://Script/Player.gd" id="1_scqw2"]
+[ext_resource type="PackedScene" uid="uid://dtfn4l2836j4n" path="res://Prefab/bala.tscn" id="2_4o3m0"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_piqom"]
 radius = 0.82714844
@@ -4813,6 +4814,7 @@ _data = {
 
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=595303214]
 script = ExtResource("1_scqw2")
+cena_bala = ExtResource("2_4o3m0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=30761031]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43265665, 1.4181049, 0.9987118)
@@ -5088,3 +5090,6 @@ margin = 5.0
 
 [node name="Camera3D" type="Camera3D" parent="Camera2" unique_id=52483013]
 transform = Transform3D(-1, 8.742278e-08, 0, 8.742278e-08, 1, 8.742278e-08, 7.642742e-15, 8.742278e-08, -1, 0, 0, -0.3724326)
+
+[node name="PontoTiro" type="Marker3D" parent="." unique_id=1876348501]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.30699432, 1.6095468, 5.7017736)

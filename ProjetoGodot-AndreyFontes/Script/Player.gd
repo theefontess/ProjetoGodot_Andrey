@@ -10,6 +10,9 @@ extends CharacterBody3D
 @onready var camera2 = $Camera2/Camera3D
 @onready var camera3 = $Camera3/Camera3D
 
+@export var cena_bala: PackedScene
+@onready var ponto_tiro = $PontoTiro
+
 var camera_atual = 1
 
 const GRAVITY = 9.8
@@ -79,7 +82,8 @@ func _physics_process(delta):
 			
 		input_dir = input_dir.normalized()
 		
-		if Input.is_action_pressed("atirar"):
+		if Input.is_action_just_pressed("atirar"):
+			atirar()
 			animator.play("Idle_Shoot")
 			
 			
@@ -95,3 +99,9 @@ func _physics_process(delta):
 		animator.play("Jump", 1,2)
 		
 	move_and_slide()
+	
+func atirar():
+	var bala = cena_bala.instantiate()
+	get_tree().current_scene.add_child(bala)
+	bala.global_position = ponto_tiro.global_position
+	bala.direcao = ponto_tiro.global_transform.basis.z.normalized()

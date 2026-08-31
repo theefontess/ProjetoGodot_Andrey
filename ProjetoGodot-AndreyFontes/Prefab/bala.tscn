@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dtfn4l2836j4n"]
+
+[ext_resource type="Script" uid="uid://cwvn5epqau3ce" path="res://bala.gd" id="1_0rmqe"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_bbx3a"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bbx3a"]
+
+[node name="Bala" type="Area3D" unique_id=2117486610]
+script = ExtResource("1_0rmqe")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=454088241]
+mesh = SubResource("SphereMesh_bbx3a")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=284922624]
+shape = SubResource("SphereShape3D_bbx3a")
