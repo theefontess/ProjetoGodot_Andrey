@@ -1,7 +1,32 @@
 [gd_scene format=3 uid="uid://cvpyxcyq4t2gb"]
 
 [ext_resource type="Script" uid="uid://bp0kt6rmmcweb" path="res://menu.gd" id="1_u1n12"]
-[ext_resource type="Texture2D" uid="uid://geivyddid8qd" path="res://UI/c22326bf-c670-4926-82da-75e1c078f0ea.png" id="2_vpgfy"]
+[ext_resource type="Texture2D" uid="uid://bswsa1xyr7qhi" path="res://UI/Menu.png" id="2_u1n12"]
+
+[sub_resource type="FontFile" id="FontFile_8aipq"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/36/0/ascent = 0.0
+cache/0/36/0/descent = 0.0
+cache/0/36/0/underline_position = 0.0
+cache/0/36/0/underline_thickness = 0.0
+cache/0/36/0/scale = 1.0
+
+[sub_resource type="Theme" id="Theme_vpgfy"]
+default_font = SubResource("FontFile_8aipq")
+default_font_size = 36
 
 [node name="Menu" type="Node3D" unique_id=2085863136]
 
@@ -14,23 +39,25 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_u1n12")
 
-[node name="C22326BfC670492682Da75e1c078f0Ea" type="Sprite2D" parent="Menu" unique_id=367624726]
-position = Vector2(576, 322.5)
-scale = Vector2(0.7526042, 0.6376953)
-texture = ExtResource("2_vpgfy")
+[node name="Menu2" type="Sprite2D" parent="Menu" unique_id=1248468133]
+position = Vector2(580.50006, 348.00003)
+scale = Vector2(0.75846356, 0.6933593)
+texture = ExtResource("2_u1n12")
 
-[node name="botao_jogar" type="Button" parent="Menu" unique_id=1949555594]
-layout_mode = 1
+[node name="botao_jogar" type="Button" parent="Menu/Menu2" unique_id=1949555594]
 anchors_preset = -1
-anchor_left = 0.19000001
-anchor_top = 0.671
-anchor_right = 0.39600003
-anchor_bottom = 0.813
-offset_left = 0.11997986
-offset_top = 0.19198608
-offset_right = -0.1920166
-offset_bottom = 0.17596436
+anchor_left = 0.142
+anchor_top = 0.5
+anchor_right = 0.34800002
+anchor_bottom = 0.63500005
+offset_left = -767.6293
+offset_top = -519.2113
+offset_right = -767.9413
+offset_bottom = -512.0593
+theme = SubResource("Theme_vpgfy")
+theme_override_colors/font_color = Color(0, 0.61960787, 0.95686275, 1)
 text = "JOGAR"
+icon_alignment = 1
 script = ExtResource("1_u1n12")
 
-[connection signal="pressed" from="Menu/botao_jogar" to="Menu/botao_jogar" method="_on_pressed"]
+[connection signal="pressed" from="Menu/Menu2/botao_jogar" to="Menu/Menu2/botao_jogar" method="_on_pressed"]
