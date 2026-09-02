@@ -2,14 +2,27 @@
 
 [ext_resource type="Script" uid="uid://cfnrqehcshgkj" path="res://Script/moeda.gd" id="1_reiul"]
 [ext_resource type="Script" uid="uid://b1781bsngdufu" path="res://gerarComposicao.gd" id="1_xmmbr"]
-[ext_resource type="Material" uid="uid://ccpri1ron31lr" path="res://Material/Cores.tres" id="2_xmmbr"]
 [ext_resource type="Script" uid="uid://bscjgr1cl2t3h" path="res://GerarArvores.gd" id="3_reiul"]
+[ext_resource type="Shader" uid="uid://dypi553vj38un" path="res://Cenas/ceu.gdshader" id="3_xmmbr"]
 [ext_resource type="PackedScene" uid="uid://b2vjjd4roj41u" path="res://Prefab/Player.tscn" id="4_r4inx"]
 [ext_resource type="Script" uid="uid://bd7ka726rno8q" path="res://Script/gerarinimigos.gd" id="5_ovbra"]
 [ext_resource type="PackedScene" uid="uid://l86vdw2u861f" path="res://UI/UIPlayer.tscn" id="6_j7fpx"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n1e5o"]
+shader = ExtResource("3_xmmbr")
+shader_parameter/sky_color = Color(0.2, 0.5, 0.9, 1)
+shader_parameter/horizon_color = Color(0.5, 0.8, 1, 1)
+shader_parameter/horizon_blur = 0.1
+shader_parameter/sun_color = Color(1, 1, 0.8, 1)
+shader_parameter/sun_size = 0.05
+shader_parameter/sun_blur = 0.01
+shader_parameter/cloud_color = Color(1, 1, 1, 1)
+shader_parameter/cloud_edge_sharpness = 0.1
+shader_parameter/cloud_scale = 2.0
+shader_parameter/cloud_speed = 0.02
+
 [sub_resource type="Sky" id="Sky_piqom"]
-sky_material = ExtResource("2_xmmbr")
+sky_material = SubResource("ShaderMaterial_n1e5o")
 
 [sub_resource type="Environment" id="Environment_bbx3a"]
 background_mode = 2
@@ -36,7 +49,7 @@ size = Vector3(300, 2.87, 300)
 size = Vector3(299.9206, 2.8813477, 300.13245)
 
 [node name="World" type="Node3D" unique_id=472865219]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 322.52197, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3181572, 0)
 
 [node name="ComposiçãoCenario" type="Node3D" parent="." unique_id=619306231]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5797539, 0)
