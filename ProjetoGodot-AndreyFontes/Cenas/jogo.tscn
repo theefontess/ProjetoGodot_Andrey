@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://b2vjjd4roj41u" path="res://Prefab/Player.tscn" id="4_r4inx"]
 [ext_resource type="Script" uid="uid://bd7ka726rno8q" path="res://Script/gerarinimigos.gd" id="5_ovbra"]
 [ext_resource type="PackedScene" uid="uid://l86vdw2u861f" path="res://UI/UIPlayer.tscn" id="6_j7fpx"]
+[ext_resource type="Shader" uid="uid://q2qr4pxymsrt" path="res://Cenas/chao.gdshader" id="7_r4inx"]
+[ext_resource type="PackedScene" uid="uid://c661m0qi3gud1" path="res://Prefab/pedra.tscn" id="8_p2wm8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n1e5o"]
 shader = ExtResource("3_xmmbr")
@@ -38,15 +40,28 @@ height = 2.8330078
 vertices = PackedVector3Array(-144.57141, -16.52033, -145.61418, -144.57141, -16.52033, 153.63582, 154.42859, -16.52033, 153.63582, 154.42859, -16.52033, -145.61418)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vpgfy"]
-albedo_color = Color(3.2488256e-07, 0.3249852, 0.017496971, 1)
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_p2wm8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n6akw"]
+render_priority = 0
+shader = ExtResource("7_r4inx")
+shader_parameter/color_top = Color(0.22, 0.55, 0.28, 1)
+shader_parameter/color_bottom = Color(0.11, 0.32, 0.16, 1)
+shader_parameter/gradient_smoothness = 0.2
 
 [sub_resource type="BoxMesh" id="BoxMesh_bbx3a"]
-material = SubResource("StandardMaterial3D_vpgfy")
+material = SubResource("ShaderMaterial_n6akw")
 size = Vector3(300, 2.87, 300)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bbx3a"]
 size = Vector3(299.9206, 2.8813477, 300.13245)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_piqom"]
+size = Vector2(100, 2)
+
+[sub_resource type="MultiMesh" id="MultiMesh_6lbhu"]
+transform_format = 1
+mesh = SubResource("PlaneMesh_piqom")
 
 [node name="World" type="Node3D" unique_id=472865219]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3181572, 0)
@@ -63,9 +78,9 @@ script = ExtResource("1_reiul")
 environment = SubResource("Environment_bbx3a")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=461007621]
-transform = Transform3D(1, 0, 0, 0, 0.9945219, 0.104528464, 0, -0.104528464, 0.9945219, 0, 142.15665, -57.18074)
-light_color = Color(0.69973654, 0.6159543, 5.7756904e-07, 1)
-light_energy = 5.0
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, -24.184525, 142.15665, -57.18074)
+light_color = Color(0.8531382, 0.75382376, 7.70092e-07, 1)
+light_energy = 3.0
 light_indirect_energy = 2.0
 light_volumetric_fog_energy = 2.0
 shadow_enabled = true
@@ -88,6 +103,7 @@ navigation_mesh = SubResource("NavigationMesh_okaox")
 
 [node name="Piso" type="StaticBody3D" parent="NavigationRegion3D" unique_id=819455313]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -19.27033, 0)
+physics_material_override = SubResource("PhysicsMaterial_p2wm8")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Piso" unique_id=465469395]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9285955, 0.9351654, 3.9415283)
@@ -99,3 +115,43 @@ shape = SubResource("BoxShape3D_bbx3a")
 
 [node name="Inimigos" type="Node3D" parent="." unique_id=1185496825]
 script = ExtResource("5_ovbra")
+
+[node name="Pedreira" parent="." unique_id=1419572405 instance=ExtResource("8_p2wm8")]
+transform = Transform3D(-1.7484556e-06, 0, 40, 0, 40, 0, -40, 0, -1.7484556e-06, 159.99751, -31.025257, 85.34761)
+
+[node name="StaticBody3D" parent="Pedreira" unique_id=800305810 instance=ExtResource("8_p2wm8")]
+transform = Transform3D(1, 0, 3.5527137e-15, 0, 1, 0, -3.5527137e-15, 0, 1, 2.2248077, -0.40376607, 0)
+
+[node name="StaticBody3D2" parent="Pedreira" unique_id=859877003 instance=ExtResource("8_p2wm8")]
+transform = Transform3D(-1, 0, -8.7422784e-08, 0, 1, 0, 8.7422784e-08, 0, -1, 4.4496155, 0, 0)
+
+[node name="Pedreira2" parent="." unique_id=174361040 instance=ExtResource("8_p2wm8")]
+transform = Transform3D(-1.7484556e-06, 0, 40, 0, 40, 0, -40, 0, -1.7484556e-06, -151.81694, -31.025257, 85.34761)
+
+[node name="StaticBody3D" parent="Pedreira2" unique_id=1120612205 instance=ExtResource("8_p2wm8")]
+transform = Transform3D(1, 0, 3.5527137e-15, 0, 1, 0, -3.5527137e-15, 0, 1, 2.2248075, -0.31624472, 0)
+
+[node name="StaticBody3D2" parent="Pedreira2" unique_id=816275069 instance=ExtResource("8_p2wm8")]
+transform = Transform3D(-1, 0, -8.7422784e-08, 0, 1, 0, 8.7422784e-08, 0, -1, 4.4496155, 0, 0)
+
+[node name="Pedreira3" parent="." unique_id=1081332905 instance=ExtResource("8_p2wm8")]
+transform = Transform3D(40, 0, 0, 0, 40, 0, 0, 0, 40, -79.101555, -31.025257, 143.07036)
+
+[node name="StaticBody3D" parent="Pedreira3" unique_id=1753730925 instance=ExtResource("8_p2wm8")]
+transform = Transform3D(1, 0, 3.5527137e-15, 0, 1, 0, -3.5527137e-15, 0, 1, 2.2248077, -0.30708373, 0)
+
+[node name="StaticBody3D2" parent="Pedreira3" unique_id=480145665 instance=ExtResource("8_p2wm8")]
+transform = Transform3D(-1, 0, -8.7422784e-08, 0, 1, 0, 8.7422784e-08, 0, -1, 4.4496155, 0, 0)
+
+[node name="Pedreira4" parent="." unique_id=1739697347 instance=ExtResource("8_p2wm8")]
+transform = Transform3D(40, 0, 0, 0, 40, 0, 0, 0, 40, -79.101555, -31.025257, -162.881)
+
+[node name="StaticBody3D" parent="Pedreira4" unique_id=2089145173 instance=ExtResource("8_p2wm8")]
+transform = Transform3D(1, 0, 3.5527137e-15, 0, 1, 0, -3.5527137e-15, 0, 1, 2.2248077, -0.34391212, 0)
+
+[node name="StaticBody3D2" parent="Pedreira4" unique_id=1200358999 instance=ExtResource("8_p2wm8")]
+transform = Transform3D(-1, 0, -8.7422784e-08, 0, 1, 0, 8.7422784e-08, 0, -1, 4.4496155, 0, 0)
+
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="." unique_id=415165751]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 82.46077, -6.3193073)
+multimesh = SubResource("MultiMesh_6lbhu")
